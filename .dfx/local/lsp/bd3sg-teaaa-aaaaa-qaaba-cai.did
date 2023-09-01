@@ -1,0 +1,18 @@
+type Post = record {
+  id : float64;
+  content : text;
+  votes : float64;
+  date : text;
+  poster : User;
+};
+type User = record { name : text; principal_id : principal };
+service : {
+  addPost : (text) -> ();
+  addVote : (float64) -> ();
+  authenticateUser : (text) -> ();
+  getAuth : () -> (text) query;
+  getPosts : () -> (vec Post) query;
+  getUser : (text) -> (text) query;
+  getUsers : () -> (vec User) query;
+  registerUser : (text, principal) -> ();
+}
